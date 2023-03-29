@@ -4,14 +4,14 @@ import { colors } from "../colors";
 import { ContainerProps } from "./types";
 const StyledView = styled.View`
   flex: 1;
-  padding: 10px 0px;
-  background-color: ${colors.lightBackground};
+  height: 100%;
+  padding: 5px;
   justify-content: center;
   align-items: center;
 `;
 
-const PageContainer: FunctionComponent<ContainerProps> = (props) => {
+const ColumnContainer: FunctionComponent<ContainerProps> = (props) => {
   return <StyledView style={props?.style}>{props.children}</StyledView>;
 };
 
-export default PageContainer;
+export default ColumnContainer;

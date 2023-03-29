@@ -3,14 +3,14 @@ import styled from "styled-components/native";
 import { colors } from "../colors";
 import { TextProps } from "./types";
 const StyledText = styled.Text`
-  font-size: 1px;
-  color: ${colors.purple};
+  font-size: 44px;
+  color: ${colors.blue};
   text-align: center;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.5px
 `;
 
-const SmallText: FunctionComponent<TextProps> = (props) => {
+const Header: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props?.style}>{props.children}</StyledText>;
 };
 
-export default SmallText;
+export default Header;

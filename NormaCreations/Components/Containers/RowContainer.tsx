@@ -3,15 +3,15 @@ import styled from "styled-components/native";
 import { colors } from "../colors";
 import { ContainerProps } from "./types";
 const StyledView = styled.View`
-  flex: 1;
-  padding: 10px 0px;
-  background-color: ${colors.lightBackground};
-  justify-content: center;
-  align-items: center;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
 `;
 
-const PageContainer: FunctionComponent<ContainerProps> = (props) => {
+const RowContainer: FunctionComponent<ContainerProps> = (props) => {
   return <StyledView style={props?.style}>{props.children}</StyledView>;
 };
 
-export default PageContainer;
+export default RowContainer;
