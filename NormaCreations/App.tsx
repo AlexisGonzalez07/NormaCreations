@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import NavigationContainer from './Components/Containers/NavigationContainer';
-import MainContainer from './Components/Containers/PageContainer';
-import Header from './Components/Texts/Header';
-import LargeText from './Components/Texts/LargeText';
-import SmallText from './Components/Texts/SmallText';
-import Text from './Components/Texts/Text';
-import Navigation from './Navigation/navigation';
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { RootStackParamList } from "./Navigation/types";
+import BalloonScreen from "./Screens/BalloonsPage/BalloonScreen";
+import DecorationsScreen from "./Screens/DecorationsPage/DecorationsScreen";
+import ContactScreen from "./Screens/ContactPage/ContactScreen";
+import ShopScreen from "./Screens/ShopPage/ShopScreen";
+import LandingScreen from "./Screens/LandingPage/LandingScreen";
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 export default function App() {
   return (
-    <MainContainer>
-      <Header>Hello</Header>
-      <SmallText>Hello</SmallText>
-      <Text>Hello</Text>
-      <LargeText>Hello</LargeText>
-      <Navigation/>
-    </MainContainer>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="LandingPage">
+      <Stack.Screen name="LandingPage" component={LandingScreen}
+         />
+        <Stack.Screen name="Shop" component={ShopScreen}
+         />
+        <Stack.Screen name="Decorations" component={DecorationsScreen} />
+        <Stack.Screen name="Balloons" component={BalloonScreen} />
+        <Stack.Screen name="Contact" component={ContactScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-

@@ -1,0 +1,1 @@
+export type ScreenProps = "Balloons" | "Decorations" | "Shop" | "Contact"

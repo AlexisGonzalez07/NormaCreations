@@ -16,8 +16,8 @@ const StyledView = styled.View`
   align-items: center;
 `;
 
-const NavigationContainer: FunctionComponent<ContainerProps> = (props) => {
+const NavigationBar: FunctionComponent<ContainerProps> = (props) => {
   return <StyledView style={props?.style}>{props.children}</StyledView>;
 };
 
-export default NavigationContainer;
+export default NavigationBar;
