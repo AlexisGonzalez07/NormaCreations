@@ -1,8 +1,8 @@
-import ScreenWrapper from "../../Components/ScreenWrapper"
+import ScreenWrapper from "../ScreenWrapper"
 import Text from "../../Components/Texts/Text"
 import { ScreenProps } from "../types"
-
-const ShopScreen: React.FC<ScreenProps> = props => {
+import { NavigationProps } from "../../Navigation/types"
+const ShopScreen: React.FC<ScreenProps & NavigationProps> = props => {
     console.log(props)
     return (
         <ScreenWrapper {...props}>

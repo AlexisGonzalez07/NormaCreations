@@ -20,8 +20,7 @@ interface NavLinkProps {
 
 
 const NavLink: FunctionComponent<NavLinkProps> = ({content}) => {
-    console.log(content)
-  return <StyledView><SmallText style={{fontSize: "13px"}}>{content}</SmallText></StyledView>;
+  return <StyledView><SmallText style={{fontSize: 13}}>{content}</SmallText></StyledView>;
 };
 
 export default NavLink;

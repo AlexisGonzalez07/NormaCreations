@@ -9,8 +9,8 @@ const StyledText = styled.Text`
   letter-spacing: 1.5px
 `;
 
-const Header: FunctionComponent<TextProps> = (props) => {
+const TextHeader: FunctionComponent<TextProps> = (props) => {
   return <StyledText style={props?.style}>{props.children}</StyledText>;
 };
 
-export default Header;
+export default TextHeader;

@@ -10,3 +10,5 @@ export type RootStackParamList = {
 
 export type NavigationProps = NativeStackScreenProps<RootStackParamList>
 
+
+

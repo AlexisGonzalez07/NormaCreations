@@ -14,10 +14,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LandingPage">
-      <Stack.Screen name="LandingPage" component={LandingScreen}
-         />
-        <Stack.Screen name="Shop" component={ShopScreen}
-         />
+        <Stack.Screen name="LandingPage" component={LandingScreen} />
+        <Stack.Screen name="Shop" component={ShopScreen} />
         <Stack.Screen name="Decorations" component={DecorationsScreen} />
         <Stack.Screen name="Balloons" component={BalloonScreen} />
         <Stack.Screen name="Contact" component={ContactScreen} />

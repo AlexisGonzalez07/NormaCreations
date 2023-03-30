@@ -6,7 +6,7 @@ const StyledView = styled.View`
   display: flex;
   width: 90%;
   padding: 5px;
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.pinkSecondary};
   border-radius: 8px;
   height: 100%;
   min-height: 150px;
