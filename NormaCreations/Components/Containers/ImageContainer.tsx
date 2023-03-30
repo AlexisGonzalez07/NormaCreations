@@ -4,7 +4,7 @@ import { colors } from "../colors";
 import { ContainerProps } from "./types";
 const StyledView = styled.View`
   display: flex;
-  width: 90%;
+  width: 100%;
   padding: 5px;
   background-color: ${colors.pinkSecondary};
   border-radius: 8px;

@@ -4,17 +4,20 @@ import { ScreenProps } from "../types"
 import { NavigationProps } from "../../Navigation/types"
 import LandingImage from './Components/Image'
 import CustomPressable from "../../Components/Buttons/CustomPressable"
+import RowContainer from "../../Components/Containers/RowContainer"
 const LandingScreen: React.FC<ScreenProps & NavigationProps> = ({navigation,route}) => {
     console.log(navigation)
     console.log(route)
     const pages = ["Shop", "Balloons", "Decorations", "Contact"]
     return (
-        <PageContainer style={{justifyContent: "space-around", backgroundColor: "red"}}>
+        <PageContainer style={{justifyContent: "space-around", padding: 0}}>
             {pages.map((page,index)=> {
                 return(
-                    <CustomPressable style={{backgroundColor:'yellow', display: 'flex', justifyContent: 'center', alignItems: 'center'}} key={index} onPress={()=> navigation.navigate(page)}>
+                    <RowContainer style={{height: '20%'}} key={index}>
+                    <CustomPressable style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width:"90%",}} onPress={()=> navigation.navigate(page)}>
                         <LandingImage/>
                     </CustomPressable>
+                    </RowContainer>
                 )
             })}
            

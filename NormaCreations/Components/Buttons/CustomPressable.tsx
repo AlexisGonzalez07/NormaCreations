@@ -6,12 +6,13 @@ const StyledPressable = styled.Pressable`
 width: 100%;
 heigth: 100%;
 display: flex;
+border-radius: 8px;
 justify-content: center;
 align-items: center;
 flex-direction: row;
 cursor: pointer;
 opacity: ${props => props.active ? .5 : 1};
-background-color: ${props => props.active ? "red": "blue"}
+background-color: ${props => props.active ? "green": "blue"}
 `;
 
 const CustomPressable: FunctionComponent<PressingProps> = (props) => {
