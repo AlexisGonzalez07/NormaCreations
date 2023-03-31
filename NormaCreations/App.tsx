@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingPage">
+      <Stack.Navigator initialRouteName="Shop">
         <Stack.Screen name="LandingPage" component={LandingScreen} />
         <Stack.Screen name="Shop" component={ShopScreen} />
         <Stack.Screen name="Decorations" component={DecorationsScreen} />

@@ -4,7 +4,7 @@ import { colors } from "../colors";
 import { ContainerProps } from "./types";
 const StyledView = styled.View`
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 10%;
   width: 100%;

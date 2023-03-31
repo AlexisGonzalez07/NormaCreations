@@ -11,6 +11,7 @@ const StyledView = styled.View`
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: ${colors.pinkSecondary}
   `;
   // min-height: 150px;
 

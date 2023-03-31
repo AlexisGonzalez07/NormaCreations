@@ -1,20 +1,19 @@
-import {Image } from "react-native"
-import Images from "../../assets/images"
-console.log(Images.landingPage)
+import {landingPage} from "../../assets/images"
 export const pages = [{
   title: "Shop",
-  imageLink: Images.landingPage.shop,
+  imageLink: landingPage.shop,
   content: "Find yourself"
 },{
   title: "Balloons",
-  imageLink: Images.landingPage.balloons,
+  imageLink: landingPage.balloons,
   content: "Find yourself"
 },{
   title: "Decorations",
-  imageLink: Images.landingPage.decorations,
+  imageLink: landingPage.decorations,
   content: "Find yourself"
 },{
   title: "Contact",
-  imageLink: Images.landingPage.shop,
+  imageLink: landingPage.shop,
   content: "We're here to serve!"
 }]
+
