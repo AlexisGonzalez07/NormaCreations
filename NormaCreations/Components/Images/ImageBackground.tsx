@@ -8,13 +8,13 @@ const StyledImage = styled.ImageBackground`
   margin: 0;
   padding-right: 0;
   border-radius: 10px;
-  opacity: 100%;
+  opacity: inherit;
   display: flex;
 `;
 
 const CustomImageBackground: FunctionComponent<ImageProps & ImageSourcePropType> = (props) => {
     console.log(props)
-  return<><StyledImage style={props?.style} source={props.source}/></> 
+  return<StyledImage style={props?.style} source={props.source}/>
 };
 
 export default CustomImageBackground;

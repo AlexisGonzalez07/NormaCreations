@@ -11,12 +11,11 @@ justify-content: center;
 align-items: center;
 flex-direction: row;
 cursor: pointer;
-opacity: ${props => props.active ? .5 : 1};
-background-color: ${props => props.active ? "green": "blue"}
+opacity: ${props => props.active ? .8 : 1};
 `;
+// background-color: ${props => props.active ? "green": "blue"}
 
 const CustomPressable: FunctionComponent<PressingProps> = (props) => {
-  console.log(props)
   const [active,setActive] = useState<boolean>(false)
   return <StyledPressable style={props?.style} active={active}
   onPress={props.onPress} onPressIn={()=> setActive(!active)} onPressOut={()=> setActive(!active)}>{props.children}</StyledPressable>;

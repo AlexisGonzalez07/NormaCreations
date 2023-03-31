@@ -10,12 +10,12 @@ const StyledImage = styled.Image`
   border-radius: 10px;
   opacity: 100%;
   display: flex;
-  z-index:10;
 `;
 
 const CustomImage: FunctionComponent<ImageProps & ImageSourcePropType> = (props) => {
     console.log(props)
-  return<><StyledImage style={props?.style} source={props.source}/></> 
+    const {source} = props
+  return<><StyledImage style={props?.style} source={source}/></> 
 };
 
 export default CustomImage;
