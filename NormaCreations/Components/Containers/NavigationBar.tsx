@@ -6,12 +6,12 @@ const StyledView = styled.View`
   overflow: hidden;
   position: absolute;
   bottom: 0;
-  height: 10%;
+  height: 8%;
   width: 100%;
-  max-height: 80px;
   display: flex;
-  padding: 5px;
-  background-color: ${colors.green};
+  padding: 2px;
+  border-radius: 2px;
+  background-color: ${colors.pinkSecondary};
   justify-content: center;
   align-items: center;
 `;

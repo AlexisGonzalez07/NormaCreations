@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { colors } from "../colors";
 import { TextProps } from "./types";
 const StyledText = styled.Text`
-  font-size: 16px;
+  font-size: 12px;
   color: ${colors.purple};
   text-align: center;
   letter-spacing: 1.5px;

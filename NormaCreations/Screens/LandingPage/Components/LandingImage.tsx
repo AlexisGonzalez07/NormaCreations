@@ -11,9 +11,7 @@ interface LandingImageProps {
 }
 
 const LandingImage: FunctionComponent<ImageProps & LandingImageProps> = (props) => {
-  console.log(props)
   const {source,style, title, content} = props
-  console.log(source)
   return <ImageContainer>
     <CustomImageBackground source={source} />
     <TextHeader style={{position:'absolute', top: '10%', left:'10%', color: 'black'}}>{title}</TextHeader>

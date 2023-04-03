@@ -5,17 +5,14 @@ import Text from "../Components/Texts/Text";
 import { NavigationProps } from "./types";
 import NavLink from "./Link";
 import CustomPressable from "../Components/Buttons/CustomPressable";
-
+import { colors } from "../Components/colors";
 const Navigation: React.FC<NavigationProps> = ({ navigation, route }) => {
     const pages = ["Shop", "Balloons", "Decorations", "Contact"]
-  console.log(navigation);
-  console.log(route);
   return (
     <NavigationBar>
-      <RowContainer style={{ height: "100%" }}>
+      <RowContainer style={{ height: "100%", backgroundColor: colors.green }}>
         {pages.map(page => <ColumnContainer style={{width: '25%'}} key={page}>
             <CustomPressable onPress={()=> {
-            console.log("pressed")
             navigation.navigate(page)}}>
             <NavLink  content={page}/>
 

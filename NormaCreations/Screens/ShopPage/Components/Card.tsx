@@ -1,31 +1,59 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components/native";
 import RowContainer from "../../../Components/Containers/RowContainer";
-import TextHeader from "../../../Components/Texts/Header"
+import TextHeader from "../../../Components/Texts/Header";
 import { ContainerProps } from "../../../Components/Containers/types";
 import ImageContainer from "../../../Components/Containers/ImageContainer";
 import LargeText from "../../../Components/Texts/LargeText";
 import CustomImage from "../../../Components/Images/CustomImage";
 import CustomImageBackground from "../../../Components/Images/ImageBackground";
-import { ImageProps, ImageSourcePropType } from "react-native";
+import { ImageSourcePropType } from "react-native";
 import NormalText from "../../../Components/Texts/Text";
+import { colors } from "../../../Components/colors";
+import ColumnContainer from "../../../Components/Containers/ColumnContainer";
+import SeparatorComponent from "../../../Components/ListItem/Separator";
+import SmallText from "../../../Components/Texts/SmallText";
 
 interface CardProps {
-  title: string;
-  content: string;
-  price: number;
+  index: number;
+  item: {
+    title: string;
+    content: string;
+    price: number;
+    imageLink: ImageSourcePropType;
+  };
 }
 
-const Card: FunctionComponent<ImageProps & CardProps> = (props) => {
-  console.log(props)
-  const {source,style, title, content} = props
-  console.log(source)
-  return <RowContainer >
-    <CustomImageBackground source={source} />
-    <TextHeader style={{position:'absolute', top: '10%', left:'10%', color: 'black'}}>{title}</TextHeader>
-    <NormalText style={{position:'absolute', bottom: '10%', right:'10%', color: 'black'}}>{content}</NormalText>
-    </ImageContainer>
-
+const Card: FunctionComponent<CardProps> = (props) => {
+  console.log(props);
+  const { item } = props;
+  return (
+    <RowContainer
+      style={{
+        width: "100%",
+        minHeight: "150px",
+        marginBottom: 10,
+        justifyContent: "space-between",
+      }}
+    >
+      <ColumnContainer style={{ width: "50%" }}>
+        <ImageContainer style={{ padding: 2 }}>
+          <CustomImage
+            style={{ borderRadius: 6 }}
+            source={item.imageLink}
+            resizeMode="center"
+          />
+        </ImageContainer>
+      </ColumnContainer>
+      {/* <SeparatorComponent style={{height: "95%", width: 1}}/> */}
+      <ColumnContainer style={{ width: "45%", justifyContent: 'space-around' }}>
+        <LargeText style={{minHeight: '25%'}}>{item.title}</LargeText>
+      
+        <NormalText style={{minHeight: '40%'}}>{item.content.length <= 60? item.content : item.content.substring(0,60) + "..."}</NormalText>
+        <SmallText>$ {item.price}</SmallText>
+      </ColumnContainer>
+    </RowContainer>
+  );
 };
 
 export default Card;

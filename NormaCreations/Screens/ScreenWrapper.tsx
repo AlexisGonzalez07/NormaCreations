@@ -10,8 +10,8 @@ type WrapperProps  = ContainerProps & NavigationProps
 
 const ScreenWrapper: FunctionComponent <WrapperProps> = (props) => {
     const {navigation,route,children} = props
-    return <PageContainer style={{position: 'relative', flex: 1, backgroundColor: 'red', paddingTop: 0}}>
-        <PageContainer style={{minHeight: '90%', backgroundColor: 'red', position: "absolute", top: 0}}>{children}</PageContainer>
+    return <PageContainer style={{position: 'relative', flex: 1,  paddingTop: 0}}>
+        <PageContainer style={{ position: "absolute", height: '92%',top: 0, width: '100%', padding: '5px'}}>{children}</PageContainer>
         <Navigation navigation={navigation} route={route}/>
     </PageContainer>
 }
