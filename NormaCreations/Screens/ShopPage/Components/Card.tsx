@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components/native";
 import RowContainer from "../../../Components/Containers/RowContainer";
-import TextHeader from "../../../Components/Texts/Header";
+import TextHeader from "../../../Components/Texts/TextHeader";
 import { ContainerProps } from "../../../Components/Containers/types";
 import ImageContainer from "../../../Components/Containers/ImageContainer";
 import LargeText from "../../../Components/Texts/LargeText";
@@ -13,15 +13,11 @@ import { colors } from "../../../Components/colors";
 import ColumnContainer from "../../../Components/Containers/ColumnContainer";
 import SeparatorComponent from "../../../Components/ListItem/Separator";
 import SmallText from "../../../Components/Texts/SmallText";
+import { product } from "../data";
 
 interface CardProps {
   index: number;
-  item: {
-    title: string;
-    content: string;
-    price: number;
-    imageLink: ImageSourcePropType;
-  };
+  item: product
 }
 
 const Card: FunctionComponent<CardProps> = (props) => {

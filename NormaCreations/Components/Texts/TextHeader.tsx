@@ -4,7 +4,6 @@ import { colors } from "../colors";
 import { TextProps } from "./types";
 const StyledText = styled.Text`
   font-size: 40px;
-  color: ${colors.blue};
   text-align: center;
   letter-spacing: 1.5px
 `;

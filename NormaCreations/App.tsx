@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./Navigation/types";
 import {lazy,Suspense} from 'react'
+import { colors } from "./Components/colors";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -18,7 +19,12 @@ export default function App() {
   return (
     <Suspense fallback={<h1>Loading..</h1>}>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingPage">
+      <Stack.Navigator 
+      screenOptions={{
+        headerShown: false
+      }}
+      initialRouteName="LandingPage"
+     >
         <Stack.Screen name="LandingPage" component={LandingScreen} />
         <Stack.Screen name="Shop" component={ShopScreen} />
         <Stack.Screen name="Decorations" component={DecorationsScreen} />

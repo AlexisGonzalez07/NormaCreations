@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ImageProps } from "react-native";
-import TextHeader from "../../../Components/Texts/Header"
+import TextHeader from "../../../Components/Texts/TextHeader"
 import ImageContainer from "../../../Components/Containers/ImageContainer";
 import CustomImageBackground from "../../../Components/Images/ImageBackground";
 import NormalText from "../../../Components/Texts/Text";
