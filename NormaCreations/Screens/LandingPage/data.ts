@@ -13,7 +13,7 @@ export const pages = [{
   content: "Find yourself"
 },{
   title: "Contact",
-  imageLink: landingPage.shop,
+  imageLink: landingPage.contact,
   content: "We're here to serve!"
 }]
 

@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./Navigation/types";
 import {lazy,Suspense} from 'react'
@@ -21,15 +21,26 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator 
       screenOptions={{
-        headerShown: false
+        headerShown: false,
+        title: "Norma's Creations"
       }}
       initialRouteName="LandingPage"
      >
-        <Stack.Screen name="LandingPage" component={LandingScreen} />
-        <Stack.Screen name="Shop" component={ShopScreen} />
-        <Stack.Screen name="Decorations" component={DecorationsScreen} />
-        <Stack.Screen name="Balloons" component={BalloonScreen} />
-        <Stack.Screen name="Contact" component={ContactScreen} />
+        <Stack.Screen name="LandingPage" component={LandingScreen}
+         />
+        <Stack.Screen name="Shop" component={ShopScreen} options={{
+          title: "Norma's Shop"
+        }}/>
+        <Stack.Screen name="Decorations" component={DecorationsScreen} 
+         options={{
+          title: "Norma's Decorations"
+        }}/>
+        <Stack.Screen name="Balloons" component={BalloonScreen}  options={{
+          title: "Norma's Balloons"
+        }}/>
+        <Stack.Screen name="Contact" component={ContactScreen}  options={{
+          title: "Contact Norma's Creations"
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
     </Suspense>

@@ -4,7 +4,7 @@ import RowContainer from "../Components/Containers/RowContainer";
 import Text from "../Components/Texts/Text";
 import { NavigationProps } from "./types";
 import NavLink from "./Link";
-import CustomPressable from "../Components/Buttons/CustomPressable";
+import CustomPressable from "../Components/Pressables/CustomPressable";
 import { colors } from "../Components/colors";
 const Navigation: React.FC<NavigationProps> = ({ navigation, route }) => {
     const pages = ["Shop", "Balloons", "Decorations", "Contact"]

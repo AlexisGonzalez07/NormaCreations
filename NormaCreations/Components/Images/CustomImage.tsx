@@ -8,14 +8,13 @@ const StyledImage = styled.Image`
   margin: 0;
   padding-right: 0;
   border-radius: 10px;
-  opacity: 100%;
+  opacity: 1;
   display: flex;
 `;
 
 const CustomImage: FunctionComponent<ImageProps & ImageSourcePropType> = (props) => {
-    console.log(props)
-    const {source} = props
-  return<><StyledImage style={props?.style} source={source}/></> 
+  
+  return<><StyledImage resizeMode={props?.resizeMode} style={props?.style} source={props.source}/></> 
 };
 
 export default CustomImage;

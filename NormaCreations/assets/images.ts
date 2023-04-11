@@ -1,7 +1,8 @@
 export const landingPage = {
-  shop: require("./valentines.jpg"),
-  balloons: require("./bubble.jpg"),
-  decorations: require("./heart.jpg"),
+  shop: require("./pastel-balloons.jpeg"),
+  balloons: require("./pastel-balloons.jpeg"),
+  decorations: require("./table.jpeg"),
+  contact: require("./contact.jpeg")
 };
 
 export const shoppingPage = {

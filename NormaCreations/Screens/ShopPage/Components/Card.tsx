@@ -13,15 +13,15 @@ import { colors } from "../../../Components/colors";
 import ColumnContainer from "../../../Components/Containers/ColumnContainer";
 import SeparatorComponent from "../../../Components/ListItem/Separator";
 import SmallText from "../../../Components/Texts/SmallText";
-import { product } from "../data";
+import { Product } from "../types";
 
 interface CardProps {
   index: number;
-  item: product
+  item: Product
 }
 
 const Card: FunctionComponent<CardProps> = (props) => {
-  console.log(props);
+  // console.log(props);
   const { item } = props;
   return (
     <RowContainer

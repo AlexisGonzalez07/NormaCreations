@@ -11,6 +11,7 @@ const StyledView = styled.View`
   justify-content: center;
   align-items: center;
   position: relative;
+  aspect-ratio: 4/3;
   background-color: ${colors.pinkSecondary}
   `;
   // min-height: 150px;

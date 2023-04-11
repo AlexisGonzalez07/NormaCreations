@@ -1,18 +1,17 @@
 import { shoppingPage } from "../../assets/images";
 import { ImageSourcePropType } from "react-native";
-export type product = {
-  id?: string;
-  title: string;
-  imageLink: ImageSourcePropType;
-  content: string;
-  price: number;
-  category: "Shirts" | "Cups"
+export type Product = {
+  readonly id?: string;
+  readonly title: string;
+  readonly imageLink: ImageSourcePropType;
+  readonly content: string;
+  readonly price: number;
+  readonly category: "Shirts" | "Cups"
 };
-
-export type StoreProducts = product[];
-
+export type StoreProducts = Product[];
 export const products: StoreProducts = [
   {
+    id: "1",
     title: "Cup",
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -21,6 +20,7 @@ export const products: StoreProducts = [
 
   },
   {
+    id: "2",
     title: "Cup",
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -28,6 +28,7 @@ export const products: StoreProducts = [
     category: "Cups"
 
   },{
+    id: "3",
     title: "Cup",
     imageLink: shoppingPage.cup,
     content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -35,6 +36,7 @@ export const products: StoreProducts = [
     category: "Cups"
 
   },{
+    id: "4",
     title: "Cup",
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -42,6 +44,7 @@ export const products: StoreProducts = [
     category: "Cups"
 
   },{
+    id: "5",
     title: "Cup",
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -50,6 +53,7 @@ export const products: StoreProducts = [
 
   },
   {
+    id: "6",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
@@ -58,6 +62,7 @@ export const products: StoreProducts = [
 
   },
   {
+    id: "7",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
@@ -65,6 +70,7 @@ export const products: StoreProducts = [
     category: "Shirts"
 
   },{
+    id: "8",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
@@ -72,6 +78,7 @@ export const products: StoreProducts = [
     category: "Shirts"
 
   },{
+    id: "9",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -79,6 +86,7 @@ export const products: StoreProducts = [
     category: "Shirts"
 
   },{
+    id: "10",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -86,6 +94,7 @@ export const products: StoreProducts = [
     category: "Shirts"
 
   },{
+    id: "11",
     title: "shirt",
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
@@ -94,3 +103,24 @@ export const products: StoreProducts = [
 
   },
 ];
+
+export type FilterValue = {
+  name: "All" | "Cups" | "Shirts",
+  active: boolean
+}
+
+export type FilterValues = FilterValue[]
+
+export const filters: FilterValues = [{
+  name: "All",
+  active: true
+},
+{
+  name: "Cups",
+  active: false
+},
+{
+  name: "Shirts",
+  active: false
+}
+]

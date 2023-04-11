@@ -5,7 +5,7 @@ import { NavigationProps } from "../../Navigation/types";
 import RowContainer from "../../Components/Containers/RowContainer";
 import ColumnContainer from "../../Components/Containers/ColumnContainer";
 import TextHeader from "../../Components/Texts/TextHeader";
-import { products, StoreProducts } from "./data";
+import { products, StoreProducts } from "./types";
 import { colors } from "../../Components/colors";
 import { FlatList } from "react-native";
 import Card from "./Components/Card";
@@ -23,10 +23,10 @@ const ShopScreen: React.FC<ScreenProps & NavigationProps> = (props) => {
       ItemSeparatorComponent={SeparatorComponent}
       ListHeaderComponent = {<ListHeader items={items} setItems={setItems} resetItems={resetItems}/>}
       style={{width: '100%', height: '100%'}}
-      data={products}
+      data={items}
       initialNumToRender = {5} 
-      keyExtractor = {items => items.price}
-      renderItem={items => <Card {...items}/>}
+      keyExtractor = {items => items.id}
+      renderItem={item => <Card {...item}/>}
       />
     </ScreenWrapper>
   );

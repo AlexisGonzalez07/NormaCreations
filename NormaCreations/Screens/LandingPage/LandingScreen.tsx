@@ -3,7 +3,7 @@ import Text from "../../Components/Texts/Text"
 import { ScreenProps } from "../types"
 import { NavigationProps } from "../../Navigation/types"
 import LandingImage from './Components/LandingImage'
-import CustomPressable from "../../Components/Buttons/CustomPressable"
+import CustomPressable from "../../Components/Pressables/CustomPressable"
 import RowContainer from "../../Components/Containers/RowContainer"
 import { pages } from "./data"
 import { colors } from "../../Components/colors"

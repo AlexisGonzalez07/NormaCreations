@@ -13,7 +13,7 @@ const StyledImage = styled.ImageBackground`
 `;
 
 const CustomImageBackground: FunctionComponent<ImageProps & ImageSourcePropType> = (props) => {
-  return<StyledImage style={props?.style} source={props.source}/>
+  return<StyledImage resizeMode={props?.resizeMode} style={props?.style} source={props.source}/>
 };
 
 export default CustomImageBackground;
