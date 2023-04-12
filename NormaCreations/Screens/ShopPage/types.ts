@@ -10,6 +10,7 @@ export type Product = {
   sales?: number
 };
 export type StoreProducts = Product[];
+
 export const products: StoreProducts = [
   {
     id: "1",
@@ -110,7 +111,7 @@ export const products: StoreProducts = [
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 160.99,
     category: "Shirts",
-    sales: 378
+    sales: 3
 
   },
 ];
@@ -119,38 +120,30 @@ export type FilterValue = {
   name: "All" | "Cups" | "Shirts",
   active: boolean
 }
+export class Filter {
+  constructor(public name: "All" | "Cups" | "Shirts", public active: boolean = false){}
+}
 
 export type FilterValues = FilterValue[]
 
-export const filters: FilterValues = [{
-  name: "All",
-  active: true
-},
-{
-  name: "Cups",
-  active: false
-},
-{
-  name: "Shirts",
-  active: false
-}
+export const filters: FilterValues = [
+  new Filter("All",true),
+  new Filter("Cups"),
+  new Filter("Shirts")
 ]
 
 export type SortValue = {
   name: "Best Sellers" | "Price",
   active: boolean
 }
- 
+
+export class Sorter {
+  constructor(public name: "Best Sellers" | "Price", public active: boolean = false){}
+}
+
 export type SortValues = SortValue[]
 
 export const sorters: SortValues = [
-  {
-    name: "Best Sellers",
-    active: false
-  },
-  {
-    name: "Price",
-    active: false
-  },
-
+ new Sorter("Best Sellers"),
+ new Sorter("Price")
 ]

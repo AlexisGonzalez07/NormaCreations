@@ -15,9 +15,12 @@ import {
   SortValue,
   SortValues,
   sorters,
+  Filter,
+  Sorter,
 } from "../types";
+import { quickSortByKey, performSort } from "./utils/sort";
 import CustomCheckBox from "../../../Components/Pressables/CheckBox";
-import { isElementAccessExpression } from "typescript";
+
 interface HeaderProps {
   items: StoreProducts;
   setItems: React.Dispatch<SetStateAction<StoreProducts>>;
@@ -29,99 +32,49 @@ const ListHeader: FunctionComponent<HeaderProps> = (props) => {
 
   const [activeSort, setActiveSort] = useState<SortValues>(sorters);
 
+  useEffect(() => {
+    props.setItems(performSort(props.items,activeSort))
+  }, [activeSort,activeFilter]);
+
   const originalItems = useRef<HeaderProps["items"]>(props.items);
 
-  useEffect(() => {
-    performSort();
-  }, [activeSort]);
 
-  const updateFilters = (filter: FilterValue) => {
-    const targetFilters = filters.map((element) => {
-      if (element.name !== filter.name) {
-        return {
-          name: element.name,
-          active: false,
-        };
+  const updateFilterOrSorter = (option: FilterValue | SortValue) => {
+    var arr;
+    if (option instanceof Filter) {
+      arr = filters;
+    } else {
+      arr = sorters;
+    }
+    var updatedArr = arr.map((element) => {
+      if (element.name !== option.name) {
+        if(element instanceof Filter){
+          return new Filter(element.name)
+        }
+        return new Sorter(element.name)
       }
-      return {
-        name: element.name,
-        active: true,
-      };
+      if (element instanceof Filter) {
+        return new Filter(element.name, true)
+      } 
+      return new Sorter(element.name, !option.active)
     });
-    setActiveFilter(targetFilters);
+    if(option instanceof Filter){
+      setActiveFilter(updatedArr);
+    } else{
+      setActiveSort(updatedArr)
+    }
   };
 
   const handleFilter = (filter: FilterValue) => {
-    updateFilters(filter);
+    updateFilterOrSorter(filter);
     if (filter.name === "All") {
       props.resetItems();
       return;
     }
-    props.setItems([
-      ...originalItems.current.filter((item) => item.category === filter.name),
-    ]);
+    props.setItems(originalItems.current.filter((item) => item.category === filter.name));
   };
 
-  const updateSorters = (sorter: SortValue) => {
-    const targetSorters = sorters.map((element) => {
-      if (element.name !== sorter.name) {
-        return {
-          name: element.name,
-          active: false,
-        };
-      }
-      return {
-        name: sorter.name,
-        active: !sorter.active,
-      };
-    });
-    setActiveSort(targetSorters);
-  };
-
-  const quicksort = (arr, key) => {
-    if (arr.length <= 1) {
-      return arr;
-    }
-
-    const pivotIndex = Math.floor(arr.length / 2);
-    const pivot = arr[pivotIndex][key];
-    const left = [];
-    const right = [];
-    const equal = [];
-
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i][key] < pivot) {
-        left.push(arr[i]);
-      } else if (arr[i][key] > pivot) {
-        right.push(arr[i]);
-      } else {
-        equal.push(arr[i]);
-      }
-    }
-
-    return [...quicksort(left, key), ...equal, ...quicksort(right, key)];
-  };
-
-  const handleSort = (sorter: SortValue) => {
-    updateSorters(sorter);
-  };
-
-  const performSort = () => {
-    activeSort.forEach((value) => {
-      if (value.active) {
-        if (value.name == "Best Sellers") {
-          // var newItems = quicksort(props.items,"sales").reverse()
-          // console.log(newItems)
-          props.setItems(quicksort(props.items, "sales").reverse());
-          return;
-        }
-        if (value.name == "Price") {
-          props.setItems(quicksort(props.items, "price"));
-          return;
-        }
-      }
-    });
-  };
+  const handleSort = (sorter: SortValue) => updateFilterOrSorter(sorter);
 
   return (
     <RowContainer

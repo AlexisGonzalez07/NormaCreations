@@ -16,9 +16,6 @@ const ShopScreen: React.FC<ScreenProps & NavigationProps> = (props) => {
   const [items, setItems] = useState<StoreProducts>(products)
 
   const resetItems = () => setItems(products)
-  useEffect(()=>{
-    console.log("rerendering")
-  },[items])
   return (
     <ScreenWrapper {...props}>
       <FlatList 
