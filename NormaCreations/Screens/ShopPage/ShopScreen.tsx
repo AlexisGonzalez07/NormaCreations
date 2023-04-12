@@ -11,12 +11,14 @@ import { FlatList } from "react-native";
 import Card from "./Components/Card";
 import SeparatorComponent from "../../Components/ListItem/Separator";
 import ListHeader from "./Components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const ShopScreen: React.FC<ScreenProps & NavigationProps> = (props) => {
   const [items, setItems] = useState<StoreProducts>(products)
 
   const resetItems = () => setItems(products)
-
+  useEffect(()=>{
+    console.log("rerendering")
+  },[items])
   return (
     <ScreenWrapper {...props}>
       <FlatList 

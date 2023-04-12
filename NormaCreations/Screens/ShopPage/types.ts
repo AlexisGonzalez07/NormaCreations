@@ -6,7 +6,8 @@ export type Product = {
   readonly imageLink: ImageSourcePropType;
   readonly content: string;
   readonly price: number;
-  readonly category: "Shirts" | "Cups"
+  readonly category: "Shirts" | "Cups",
+  sales?: number
 };
 export type StoreProducts = Product[];
 export const products: StoreProducts = [
@@ -16,8 +17,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 155.99,
-    category: "Cups"
-
+    category: "Cups",
+    sales: 3
   },
   {
     id: "2",
@@ -25,7 +26,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 255.99,
-    category: "Cups"
+    category: "Cups",
+    sales: 9
 
   },{
     id: "3",
@@ -33,7 +35,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.cup,
     content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 355.99,
-    category: "Cups"
+    category: "Cups",
+    sales: 78
 
   },{
     id: "4",
@@ -41,7 +44,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 455.99,
-    category: "Cups"
+    category: "Cups",
+    sales: 33
 
   },{
     id: "5",
@@ -49,7 +53,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.cup,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 555.99,
-    category: "Cups"
+    category: "Cups",
+    sales: 36
 
   },
   {
@@ -58,7 +63,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
     price: 110.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 38
 
   },
   {
@@ -67,7 +73,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
     price: 120.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 34
 
   },{
     id: "8",
@@ -75,7 +82,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "Check out this shirt",
     price: 130.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 36
 
   },{
     id: "9",
@@ -83,7 +91,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 140.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 30
 
   },{
     id: "10",
@@ -91,7 +100,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 150.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 387
 
   },{
     id: "11",
@@ -99,7 +109,8 @@ export const products: StoreProducts = [
     imageLink: shoppingPage.shirt,
     content: "  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, veniam!",
     price: 160.99,
-    category: "Shirts"
+    category: "Shirts",
+    sales: 378
 
   },
 ];
@@ -123,4 +134,23 @@ export const filters: FilterValues = [{
   name: "Shirts",
   active: false
 }
+]
+
+export type SortValue = {
+  name: "Best Sellers" | "Price",
+  active: boolean
+}
+ 
+export type SortValues = SortValue[]
+
+export const sorters: SortValues = [
+  {
+    name: "Best Sellers",
+    active: false
+  },
+  {
+    name: "Price",
+    active: false
+  },
+
 ]

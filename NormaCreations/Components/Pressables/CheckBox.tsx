@@ -1,9 +1,8 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState,useEffect } from "react";
 import styled from "styled-components/native";
 import { colors } from "../colors";
 import {PressingProps} from "./types";
 import SmallText from "../Texts/SmallText";
-import { Ionicons } from '@expo/vector-icons';
 
 const StyledPressable = styled.Pressable`
 width: 100%;
@@ -19,10 +18,9 @@ cursor: pointer;
 // background-color: ${props => props.active ? "green": "blue"}
 
 const CustomCheckBox: FunctionComponent<PressingProps> = (props) => {
-  console.log(props)
   return <StyledPressable style={props?.style}
   onPress={props.onPress}>
-<Ionicons name={props.active ? 'checkbox-outline' : "square-outline"} size={24}/>
+    {props.children}
   <SmallText>{props.content}</SmallText>
   </StyledPressable>;
 };

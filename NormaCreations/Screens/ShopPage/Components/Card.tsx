@@ -47,6 +47,7 @@ const Card: FunctionComponent<CardProps> = (props) => {
       
         <NormalText style={{minHeight: '40%'}}>{item.content.length <= 60? item.content : item.content.substring(0,60) + "..."}</NormalText>
         <SmallText>$ {item.price}</SmallText>
+        <SmallText>Items sold: {item.sales }</SmallText>
       </ColumnContainer>
     </RowContainer>
   );

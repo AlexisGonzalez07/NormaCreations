@@ -17,14 +17,14 @@ const ContactScreen = lazy(() => import("./Screens/ContactPage/ContactScreen"))
 
 export default function App() {
   return (
-    <Suspense fallback={<h1>Loading..</h1>}>
+    <Suspense fallback={<h1>In Progress..</h1>}>
     <NavigationContainer>
       <Stack.Navigator 
       screenOptions={{
         headerShown: false,
         title: "Norma's Creations"
       }}
-      initialRouteName="LandingPage"
+      initialRouteName="Shop"
      >
         <Stack.Screen name="LandingPage" component={LandingScreen}
          />
