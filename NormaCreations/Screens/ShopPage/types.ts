@@ -1,5 +1,34 @@
 import { shoppingPage } from "../../assets/images";
 import { ImageSourcePropType } from "react-native";
+import { SetStateAction } from "react";
+
+export interface HeaderProps {
+  items: StoreProducts;
+  setItems: React.Dispatch<SetStateAction<StoreProducts>>;
+  resetItems: () => void;
+}
+export type FilterValue = {
+  name: "All" | "Cups" | "Shirts",
+  active: boolean
+}
+export class Filter {
+  constructor(public name: "All" | "Cups" | "Shirts", public active: boolean = false){}
+}
+
+export type FilterValues = FilterValue[]
+
+
+export type SortValue = {
+  name: "Best Sellers" | "Price",
+  active: boolean
+}
+
+export class Sorter {
+  constructor(public name: "Best Sellers" | "Price", public active: boolean = false){}
+}
+
+export type SortValues = SortValue[]
+
 export type Product = {
   readonly id?: string;
   readonly title: string;
@@ -9,7 +38,9 @@ export type Product = {
   readonly category: "Shirts" | "Cups",
   sales?: number
 };
+
 export type StoreProducts = Product[];
+
 
 export const products: StoreProducts = [
   {
@@ -116,32 +147,11 @@ export const products: StoreProducts = [
   },
 ];
 
-export type FilterValue = {
-  name: "All" | "Cups" | "Shirts",
-  active: boolean
-}
-export class Filter {
-  constructor(public name: "All" | "Cups" | "Shirts", public active: boolean = false){}
-}
-
-export type FilterValues = FilterValue[]
-
 export const filters: FilterValues = [
   new Filter("All",true),
   new Filter("Cups"),
   new Filter("Shirts")
 ]
-
-export type SortValue = {
-  name: "Best Sellers" | "Price",
-  active: boolean
-}
-
-export class Sorter {
-  constructor(public name: "Best Sellers" | "Price", public active: boolean = false){}
-}
-
-export type SortValues = SortValue[]
 
 export const sorters: SortValues = [
  new Sorter("Best Sellers"),
