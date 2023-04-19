@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./Navigation/types";
 import {lazy,Suspense} from 'react'
 import { colors } from "./Components/colors";
-
+import { CartProvider } from "./CartContext";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const LandingScreen = lazy(() => import("./Screens/LandingPage/LandingScreen"))
@@ -17,6 +17,7 @@ const ContactScreen = lazy(() => import("./Screens/ContactPage/ContactScreen"))
 
 export default function App() {
   return (
+    <CartProvider>
     <Suspense fallback={<h1>In Progress..</h1>}>
     <NavigationContainer>
       <Stack.Navigator 
@@ -44,5 +45,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
     </Suspense>
+    </CartProvider>
   );
 }

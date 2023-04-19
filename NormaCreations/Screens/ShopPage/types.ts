@@ -30,7 +30,7 @@ export class Sorter {
 export type SortValues = SortValue[]
 
 export type Product = {
-  readonly id?: string;
+  readonly id: string;
   readonly title: string;
   readonly imageLink: ImageSourcePropType;
   readonly content: string;

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useContext } from "react";
 import styled from "styled-components/native";
 import RowContainer from "../../../Components/Containers/RowContainer";
 import TextHeader from "../../../Components/Texts/TextHeader";
@@ -14,6 +14,9 @@ import ColumnContainer from "../../../Components/Containers/ColumnContainer";
 import SeparatorComponent from "../../../Components/ListItem/Separator";
 import SmallText from "../../../Components/Texts/SmallText";
 import { Product } from "../types";
+import CustomPressable from "../../../Components/Pressables/CustomPressable";
+import { CartContext } from "../../../CartContext";
+import { Ionicons } from "@expo/vector-icons";
 
 interface CardProps {
   index: number;
@@ -22,6 +25,7 @@ interface CardProps {
 
 const Card: FunctionComponent<CardProps> = (props) => {
   // console.log(props);
+  const {addToCart} = useContext(CartContext)
   const { item } = props;
   return (
     <RowContainer
@@ -43,10 +47,14 @@ const Card: FunctionComponent<CardProps> = (props) => {
       </ColumnContainer>
       {/* <SeparatorComponent style={{height: "95%", width: 1}}/> */}
       <ColumnContainer style={{ width: "45%", justifyContent: 'space-around' }}>
-        <LargeText style={{minHeight: '25%'}}>{item.title}</LargeText>
-      
-        <NormalText style={{minHeight: '40%'}}>{item.content.length <= 60? item.content : item.content.substring(0,60) + "..."}</NormalText>
+        <LargeText>{item.title}</LargeText>
+        <NormalText >{item.content.length <= 60? item.content : item.content.substring(0,60) + "..."}</NormalText>
+        <CustomPressable onPress={() => addToCart(item)} style={{backgroundColor: colors.green, width: 'auto', padding: 3, marginVertical: 3}}>
+        <Ionicons name={'cart'} size={24} />
+      {/* <IonIcon icon={basketOutline} />
+      <IonIcon icon={giftOutline} /> */}
         <SmallText>$ {item.price}</SmallText>
+        </CustomPressable>
         <SmallText>Items sold: {item.sales }</SmallText>
       </ColumnContainer>
     </RowContainer>
