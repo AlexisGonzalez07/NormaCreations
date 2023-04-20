@@ -1,15 +1,19 @@
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NavigationContainer} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./Navigation/types";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState} from "react";
 import { colors } from "./Components/colors";
-import { CartProvider } from "./CartContext";
+import {CartProvider } from "./CartContext";
 import CustomPressable from "./Components/Pressables/CustomPressable";
 import { Ionicons } from "@expo/vector-icons";
 import CartModal from "./Components/Modals/CartModal";
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+
+const CheckoutScreen= lazy(() => import("./Screens/CheckoutPage/CheckoutScreen"));
 const LandingScreen = lazy(() => import("./Screens/LandingPage/LandingScreen"));
 const BalloonScreen = lazy(
   () => import("./Screens/BalloonsPage/BalloonScreen")
@@ -22,16 +26,29 @@ const ContactScreen = lazy(() => import("./Screens/ContactPage/ContactScreen"));
 
 export default function App() {
   const [showModal, setShowModal] = useState(false);
-
   const handleOpenModal = () => {
     setShowModal(true);
   };
-
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const fetchFonts = () => {
+    return Font.loadAsync({
+      'antic-didone': require('./assets/fonts/anticdidoneregular.ttf'),
+    });
+  };
+  const [fontLoaded, setFontLoaded] = useState(false);
 
-  return (
+  return (<>
+  {!fontLoaded
+  ? (
+    <AppLoading
+      startAsync={fetchFonts}
+      onFinish={() => setFontLoaded(true)}
+      onError={console.warn}
+    />
+  ):
+  
     <CartProvider>
       <Suspense fallback={<h1>In Progress..</h1>}>
         <NavigationContainer>
@@ -45,7 +62,8 @@ export default function App() {
               },
               headerRight: () => (
                 <CustomPressable onPress={() => handleOpenModal()} style={{backgroundColor: colors.green, width: 'auto', padding: 3, marginRight: 10}}>
-                <Ionicons name={'cart'} size={28} /></CustomPressable>
+                <Ionicons name={'cart'} size={28} />
+                </CustomPressable>
               )
             }}
             initialRouteName="Shop"
@@ -89,10 +107,17 @@ export default function App() {
                 headerLeft: null
               }}
             />
+            <Stack.Screen name="Checkout"
+            component={CheckoutScreen}
+            options={{
+              title: "Finalize Your Order"
+            }}
+            />
           </Stack.Navigator>
             <CartModal visible={showModal} handleCloseModal={handleCloseModal}/>
         </NavigationContainer>
       </Suspense>
-    </CartProvider>
-  );
+    </CartProvider>}
+    </>
+    );
 }

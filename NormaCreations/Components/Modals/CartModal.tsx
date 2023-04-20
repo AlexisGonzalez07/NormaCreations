@@ -16,6 +16,7 @@ import NormalText from "../Texts/Text";
 import LargeText from "../Texts/LargeText";
 import SeparatorComponent from "../ListItem/Separator";
 import CartItem from "./CartItemComponent/CartItem";
+import TextHeader from "../Texts/TextHeader";
 interface Props {
   visible: boolean;
   onClose?: () => void;
@@ -43,17 +44,18 @@ const CartModal: FC<Props> = (props) => {
       onRequestClose={props.onClose}
     >
       <PageContainer style={{padding: 0}}>
-        <RowContainer style={{ height: "10%", justifyContent: "flex-end", paddingTop: 10 }}>
+        <RowContainer style={{ height: "10%", justifyContent: "space-between", paddingTop: 10, paddingHorizontal: 20 }}>
+          <LargeText>Your Cart:</LargeText>
           <CustomPressable
             onPress={() => props.handleCloseModal()}
             style={{
               backgroundColor: colors.purple,
               width: "auto",
               padding: 5,
-              marginRight: 10,
+            //   marginRight: 10,
             }}
           >
-            <Ionicons name={"backspace"} size={48} />
+            <Ionicons name={"backspace"} size={40} />
           </CustomPressable>
         </RowContainer>
         <ColumnContainer
@@ -75,7 +77,22 @@ const CartModal: FC<Props> = (props) => {
           {cartItems.length == 0 ?
           <LargeText>Add items to your cart to get a summary</LargeText>
           : (<><NormalText>Total items: {cartItems.length}</NormalText>
-          <NormalText>Cart Total: ${getTotal()}</NormalText></>)
+          <NormalText>Cart Total: ${getTotal()}</NormalText>
+          <CustomPressable
+            onPress={() => {
+                props.handleCloseModal()
+                navigation.navigate("Checkout")
+        }}
+            style={{
+              backgroundColor: colors.green,
+              width: "60%",
+              paddingVertical: 5
+            }}
+          >
+            <MaterialCommunityIcons name="cart-check" size={30} color="black" />          
+            <NormalText style={{marginLeft: 5}}>Checkout Now!</NormalText>
+            </CustomPressable>
+          </>)
         }
         </ColumnContainer>
         </RowContainer>

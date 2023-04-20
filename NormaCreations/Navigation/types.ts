@@ -5,7 +5,8 @@ export type RootStackParamList = {
     Decorations: undefined;
     Contact: undefined;
     Shop: undefined;
-    LandingPage:undefined
+    LandingPage:undefined;
+    Checkout: undefined;
 }
 
 export type NavigationProps = NativeStackScreenProps<RootStackParamList>

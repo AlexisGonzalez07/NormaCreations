@@ -5,7 +5,9 @@ import { TextProps } from "./types";
 const StyledText = styled.Text`
   font-size: 40px;
   text-align: center;
-  letter-spacing: 1.5px
+  letter-spacing: 1.5px;
+  font-family: antic-didone
+
 `;
 
 const TextHeader: FunctionComponent<TextProps> = (props) => {
