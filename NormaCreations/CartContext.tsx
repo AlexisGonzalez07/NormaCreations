@@ -5,6 +5,7 @@ export class Item {
   constructor(
     public id: string,
     public title: string,
+    public description: string,
     public imageLink: ImageSourcePropType,
     public price: number,
     public quantity: number = 1
@@ -16,6 +17,7 @@ interface CartContextState {
   addToCart: (item: Item) => void;
   removeFromCart: (item: Item) => void;
   updateItemQuantity: (item: Item) => void;
+  getTotal: () => number
 }
 
 export const CartContext = createContext<CartContextState>({
@@ -23,6 +25,7 @@ export const CartContext = createContext<CartContextState>({
   addToCart: () => {},
   removeFromCart: () => {},
   updateItemQuantity: () => {},
+  getTotal: () => 0,
 });
 
 type ProviderProps = {
@@ -44,7 +47,7 @@ export const CartProvider: React.FC<ProviderProps> = (props) => {
       ? updateItemQuantity(item, 1)
       : setCartItems([
           ...cartItems,
-          new Item(item.id, item.title, item.imageLink, item.price),
+          new Item(item.id, item.title, item.content, item.imageLink, item.price),
         ]);
   };
 
@@ -66,11 +69,18 @@ export const CartProvider: React.FC<ProviderProps> = (props) => {
       : removeFromCart(newCartItems[index]);
   };
 
+  const getTotal = () => 
+    cartItems.reduce((accumulator,current)=> {
+        return accumulator + (current.price * current.quantity)
+    },0)
+  
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
     updateItemQuantity,
+    getTotal,
   };
 
   return (

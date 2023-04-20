@@ -55,7 +55,7 @@ const Card: FunctionComponent<CardProps> = (props) => {
       <IonIcon icon={giftOutline} /> */}
         <SmallText>$ {item.price}</SmallText>
         </CustomPressable>
-        <SmallText>Items sold: {item.sales }</SmallText>
+        <SmallText>Items sold: {item.sales}</SmallText>
       </ColumnContainer>
     </RowContainer>
   );
