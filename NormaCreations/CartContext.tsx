@@ -47,7 +47,7 @@ export const CartProvider: React.FC<ProviderProps> = (props) => {
       ? updateItemQuantity(item, 1)
       : setCartItems([
           ...cartItems,
-          new Item(item.id, item.title, item.content, item.imageLink, item.price),
+          new Item(item.id, item.title, item.content, item.imageLink[0], item.price),
         ]);
   };
 

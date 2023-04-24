@@ -14,7 +14,6 @@ const StyledView = styled.View`
   aspect-ratio: 4/3;
   background-color: ${colors.pinkSecondary}
   `;
-  // min-height: 150px;
 
 const ImageContainer: FunctionComponent<ContainerProps> = (props) => {
   return <StyledView style={props?.style}>{props.children}</StyledView>;

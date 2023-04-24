@@ -17,11 +17,7 @@ import LargeText from "../Texts/LargeText";
 import SeparatorComponent from "../ListItem/Separator";
 import CartItem from "./CartItemComponent/CartItem";
 import TextHeader from "../Texts/TextHeader";
-interface Props {
-  visible: boolean;
-  onClose?: () => void;
-  handleCloseModal: () => void;
-}
+import { ModalProps } from "./types";
 
 const StyledModal = styled.Modal`
   flex: 1;
@@ -31,17 +27,15 @@ const StyledModal = styled.Modal`
   align-items: center;
 `;
 
-const CartModal: FC<Props> = (props) => {
-  console.log(props);
+const CartModal: FC<ModalProps> = (props) => {
   const navigation = useNavigation();
   const { cartItems, updateItemQuantity, removeFromCart,getTotal } = useContext(CartContext);
-  console.log(navigation);
-  console.log(cartItems);
+
   return (
     <StyledModal
       animationType="slide"
       visible={props.visible}
-      onRequestClose={props.onClose}
+      onRequestClose={props.handleCloseModal}
     >
       <PageContainer style={{padding: 0}}>
         <RowContainer style={{ height: "10%", justifyContent: "space-between", paddingTop: 10, paddingHorizontal: 20 }}>

@@ -15,7 +15,6 @@ align-items: center;
 flex-direction: row;
 cursor: pointer;
 `;
-// background-color: ${props => props.active ? "green": "blue"}
 
 const CustomCheckBox: FunctionComponent<PressingProps> = (props) => {
   return <StyledPressable style={props?.style}

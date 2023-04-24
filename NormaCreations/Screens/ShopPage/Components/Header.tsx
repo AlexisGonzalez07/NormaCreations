@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useRef, useState, useEffect } from "react";
-import { GestureResponderEvent } from "react-native";
 import { colors } from "../../../Components/colors";
 import ColumnContainer from "../../../Components/Containers/ColumnContainer";
 import RowContainer from "../../../Components/Containers/RowContainer";
@@ -9,17 +8,13 @@ import CustomCheckBox from "../../../Components/Pressables/CheckBox";
 import { Ionicons } from "@expo/vector-icons";
 import {
   FilterValues,
-  StoreProducts,
   filters,
   FilterValue,
-  SortValue,
   SortValues,
   sorters,
-  Filter,
-  Sorter,
   HeaderProps
 } from "../types";
-import { quickSortByKey, performSort, getNewFilters, getNewSorters } from "./utils/sort";
+import {performSort, getNewFilters, getNewSorters } from "./utils/sort";
 
 const ListHeader: FunctionComponent<HeaderProps> = (props) => {
   const [activeFilter, setActiveFilter] = useState<FilterValues>(filters);
@@ -48,7 +43,7 @@ const ListHeader: FunctionComponent<HeaderProps> = (props) => {
 
   return (
     <RowContainer
-      style={{ backgroundColor: colors.pinkSecondary, borderRadius: 3 }}
+      style={{ backgroundColor: colors.pinkSecondary, borderRadius: 3, maxHeight: 150 }}
     >
       <RowContainer>
         <LargeText>Check out some of</LargeText>

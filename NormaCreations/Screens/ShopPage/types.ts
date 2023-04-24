@@ -32,7 +32,7 @@ export type SortValues = SortValue[]
 export type Product = {
   readonly id: string;
   readonly title: string;
-  readonly imageLink: ImageSourcePropType;
+  readonly imageLink: ImageSourcePropType[];
   readonly content: string;
   readonly price: number;
   readonly category: "Shirts" | "Cups",

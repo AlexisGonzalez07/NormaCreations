@@ -6,7 +6,6 @@ const StyledText = styled.Text`
   font-size: 40px;
   text-align: center;
   letter-spacing: 1.5px;
-  font-family: antic-didone
 
 `;
 

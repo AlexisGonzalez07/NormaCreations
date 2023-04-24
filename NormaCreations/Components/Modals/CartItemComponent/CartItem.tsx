@@ -18,7 +18,6 @@ interface ItemProps {
 }
 
 const CartItem: FunctionComponent<ItemProps> = (props) => {
-  console.log(props);
   const { item } = props;
   return (
     <RowContainer style={{ minHeight: 100 }}>

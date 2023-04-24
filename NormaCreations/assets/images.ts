@@ -6,7 +6,7 @@ export const landingPage = {
 };
 
 export const shoppingPage = {
-    shirt: require("./shirt.jpg"),
-    cup: require("./cup.jpeg"),
+    shirt:[ require("./shirt.jpg"),require("./cup.jpeg")],
+    cup: [require("./cup.jpeg"),require("./shirt.jpg")]
   };
   

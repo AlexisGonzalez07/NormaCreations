@@ -9,7 +9,7 @@ import { pages } from "./data"
 import { colors } from "../../Components/colors"
 const LandingScreen: React.FC<ScreenProps & NavigationProps> = ({navigation,route}) => {
    return (
-        <PageContainer style={{justifyContent: "space-around", padding: 0,}}>
+        <PageContainer style={{justifyContent: "space-around", padding: 0}}>
             {pages.map((page,index)=> {
                 return(
                     <RowContainer style={{height: '20%'}} key={index}>

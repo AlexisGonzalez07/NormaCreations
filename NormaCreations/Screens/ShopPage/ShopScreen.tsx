@@ -14,7 +14,7 @@ import ListHeader from "./Components/Header";
 import { useEffect, useState } from "react";
 const ShopScreen: React.FC<ScreenProps & NavigationProps> = (props) => {
   const [items, setItems] = useState<StoreProducts>(products)
-
+  
   const resetItems = () => setItems(products)
   return (
     <ScreenWrapper {...props}>
@@ -23,7 +23,6 @@ const ShopScreen: React.FC<ScreenProps & NavigationProps> = (props) => {
       ListHeaderComponent = {<ListHeader items={items} setItems={setItems} resetItems={resetItems}/>}
       style={{width: '100%', height: '100%'}}
       data={items}
-      initialNumToRender = {5} 
       keyExtractor = {items => items.id}
       renderItem={item => <Card {...item}/>}
       />
