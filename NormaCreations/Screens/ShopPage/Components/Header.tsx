@@ -43,7 +43,7 @@ const ListHeader: FunctionComponent<HeaderProps> = (props) => {
 
   return (
     <RowContainer
-      style={{ backgroundColor: colors.pinkSecondary, borderRadius: 3, maxHeight: 150 }}
+      style={{ backgroundColor: colors.pinkSecondary, borderRadius: 3, maxHeight: 200 }}
     >
       <RowContainer>
         <LargeText>Check out some of</LargeText>

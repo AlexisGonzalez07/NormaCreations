@@ -7,5 +7,6 @@ export interface ModalProps {
   }
 
 export interface ProductModalProps extends ModalProps{
-    item: Product
+    item: Product,
+    addToCart: (item) => void
 }

@@ -9,7 +9,8 @@ const StyledText = styled.Text`
 `;
 
 const LargeText: FunctionComponent<TextProps> = (props) => {
-  return <StyledText style={props?.style}>{props.children}</StyledText>;
+  return <StyledText onPress={props?.onPress
+  } style={props?.style}>{props.children}</StyledText>;
 };
 
 export default LargeText;

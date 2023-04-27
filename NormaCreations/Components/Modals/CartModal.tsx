@@ -46,7 +46,6 @@ const CartModal: FC<ModalProps> = (props) => {
               backgroundColor: colors.purple,
               width: "auto",
               padding: 5,
-            //   marginRight: 10,
             }}
           >
             <Ionicons name={"backspace"} size={40} />

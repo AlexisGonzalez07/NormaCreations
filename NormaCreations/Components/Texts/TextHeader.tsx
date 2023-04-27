@@ -10,7 +10,8 @@ const StyledText = styled.Text`
 `;
 
 const TextHeader: FunctionComponent<TextProps> = (props) => {
-  return <StyledText style={props?.style}>{props.children}</StyledText>;
+  return <StyledText onPress={props?.onPress
+  } style={props?.style}>{props.children}</StyledText>;
 };
 
 export default TextHeader;
